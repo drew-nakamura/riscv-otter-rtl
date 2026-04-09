@@ -24,8 +24,6 @@
 //   - Educational use only
 //   - Not an original architecture design
 //============================================================
-//
-//
 //    FOUR_TO_ONE_MUX(
 //        .A(),
 //        .B(),
@@ -33,8 +31,7 @@
 //        .D(),
 //        .OUT()
 //        );
-//
-//  
+
 module FOUR_TO_ONE_MUX(
     input [31:0] A, B, C, D,
     input [1:0] SEL,
