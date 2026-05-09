@@ -1,70 +1,40 @@
-# riscv-otter-rtl
-SystemVerilog/Verilog RTL implementation of modules from a RISC-V (RV32I) processor (OTTER architecture)
-# RISC-V OTTER RTL (SystemVerilog)
+OTTER-AXI-Pipelined
+A High-Performance 5-Stage RISC-V SoC with AXI4 Interconnects
 
-## Overview
+🎯 The Mission
+The OTTER-AXI-Pipelined project transforms the standard single-cycle RISC-V OTTER architecture into a production-grade SoC. The goal was to move beyond "functional" RTL and solve real-world hardware engineering challenges: pipeline hazards, memory bottlenecks, and industry-standard bus protocols.
 
-This repository contains my SystemVerilog RTL implementations of key modules from a RISC-V (RV32I) processor based on the OTTER architecture.
+By integrating an AXI4-Full interconnect, this core is capable of high-throughput data processing, specifically optimized for memory-intensive tasks like matrix multiplication.
 
-The OTTER processor is an educational microcontroller used in CPE 233 at California Polytechnic State University (Cal Poly San Luis Obispo). The architecture and high-level design are provided by course instructors, and most RTL implementations in this repository are my own work. Some components (such as the memory module) were provided as part of the course and are included for integration and completeness.
+🏗️ Architectural Highlights
+5-Stage Pipelined Core: Implements Fetch, Decode, Execute, Memory, and Writeback with full forwarding logic and hazard detection.
 
----
+AXI4-Full Interconnect: Moving beyond AXI-Lite to support Burst Transfers, allowing the pipeline to remain fed during large data movements.
 
-## Features
+HW/SW Co-Design: Built alongside custom C-drivers (developed with systems programming principles) to manage hardware resources and memory mapping.
 
-* SystemVerilog/Verilog RTL design
-* RV32I RISC-V instruction support (partial, based on coursework scope)
-* Modular hardware components
+Verified Reliability: Utilizes a protocol-correct verification suite to ensure bus compliance and computational accuracy.
 
----
+🚀 Key Features
+Matrix Multiplication Engine: A specialized hardware-software implementation designed to benchmark throughput across different architectural configurations.
 
-## Implemented Modules(Student)
-* Program Counter MUX (PC)
+Memory Controller: Supports burst-mode operations to minimize CPU stalls during heavy load.
 
-## IMPLEMENTED MODULES(Povided)
-* Memory Module (Instruction/Data)
-  
-> Note: Modules implemented depend on coursework progression.
+SystemVerilog Foundation: Written using modern SystemVerilog (Interfaces, Structs) to align with professional ASIC design workflows.
 
----
+📊 Benchmarks & Results
+How does a 5-stage pipeline with AXI4-Full compare to a standard single-cycle core? I've documented the cycle counts, throughput delta, and "Roofline Model" analysis in a separate technical report.
 
-## Technical Details
+👉 View the Full Comparison & Performance Results
 
-* Language: SystemVerilog, Verilog
-* Design Style:
+🛠️ Tech Stack
+HDL: SystemVerilog
 
-  * `always_ff` for sequential logic
-  * `always_comb` for combinational logic
-  * Strong use of `logic` types (no legacy `reg/wire` where avoidable)
-* Target: FPGA-oriented design (BRAM-compatible memory)
+Synthesis/Simulation: Vivado, Questa/ModelSim
 
----
+Languages: C (Firmware), Assembly (RISC-V)
 
-## Project Structure
-...
+Protocols: AXI4 (Full & Lite)
 
----
-
-## Learning Objectives
-
-This project demonstrates:
-
-* RTL design from specification
-* Understanding of RISC-V architecture fundamentals
-* Synchronous digital design principles
-
----
-
-## Attribution
-
-The OTTER RISC-V architecture and project specifications were developed by faculty at California Polytechnic State University.
-
-This repository contains my own implementations based on those specifications and is intended for educational purposes.
-
----
-
-## Disclaimer
-
-This project is for educational use only and is not intended for production hardware.
-
----
+About the Developer
+This project was developed at California Polytechnic State University (Cal Poly), San Luis Obispo, as a deep dive into Computer Architecture (CPE 333) and Systems Programming (CSC 357). It represents the bridge between academic theory and ASIC industry standards.
